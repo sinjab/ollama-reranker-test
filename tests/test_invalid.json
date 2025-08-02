@@ -1,0 +1,11 @@
+{
+  "model": "nonexistent",
+  "query": "test",
+  "documents": [
+    "doc"
+  ],
+  "_test_metadata": {
+    "expected_to_fail": true,
+    "description": "Tests proper error handling for nonexistent models"
+  }
+}

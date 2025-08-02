@@ -1,0 +1,6 @@
+{
+  "query": "simple test",
+  "documents": [
+    "This is a test document"
+  ]
+}

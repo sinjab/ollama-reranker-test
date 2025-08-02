@@ -1,0 +1,9 @@
+{
+  "query": "What is machine learning?",
+  "documents": [
+    "Machine learning is a subset of artificial intelligence.",
+    "The weather today is sunny.",
+    "Deep learning uses neural networks."
+  ],
+  "instruction": "Find AI topics"
+}

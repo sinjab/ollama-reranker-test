@@ -1,0 +1,8 @@
+{
+  "query": "test",
+  "documents": [],
+  "_test_metadata": {
+    "expected_to_fail": false,
+    "description": "Tests handling of empty document arrays (should return empty results)"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "query": "How to cook pasta?",
+  "documents": [
+    "Boil water, add pasta, cook 8-12 minutes.",
+    "Pasta is made from wheat flour.",
+    "Italy is famous for pasta."
+  ],
+  "top_n": 2
+}

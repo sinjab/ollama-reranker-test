@@ -1,0 +1,512 @@
+{
+  "BAAI/bge-reranker-v2-m3": {
+    "test_capital": {
+      "test_case": {
+        "name": "test_capital",
+        "file": "tests/test_capital.json",
+        "query": "What is the capital of China?",
+        "documents": [
+          "The capital of China is Beijing.",
+          "China is a large country in Asia.",
+          "Paris is the capital of France."
+        ]
+      },
+      "result": {
+        "success": true,
+        "results": [
+          {
+            "index": 0,
+            "document": "The capital of China is Beijing.",
+            "relevance_score": 0.9999680581802354,
+            "raw_response": "1.0000"
+          },
+          {
+            "index": 1,
+            "document": "China is a large country in Asia.",
+            "relevance_score": 0.07450025901897812,
+            "raw_response": "0.0745"
+          },
+          {
+            "index": 2,
+            "document": "Paris is the capital of France.",
+            "relevance_score": 0.00034062932773341,
+            "raw_response": "0.0003"
+          }
+        ],
+        "time": 1.276949167251587,
+        "error": null
+      }
+    },
+    "test_cooking": {
+      "test_case": {
+        "name": "test_cooking",
+        "file": "tests/test_cooking.json",
+        "query": "How to cook pasta?",
+        "documents": [
+          "Boil water, add pasta, cook 8-12 minutes.",
+          "Pasta is made from wheat flour.",
+          "Italy is famous for pasta."
+        ],
+        "top_n": 2
+      },
+      "result": {
+        "success": true,
+        "results": [
+          {
+            "index": 0,
+            "document": "Boil water, add pasta, cook 8-12 minutes.",
+            "relevance_score": 0.7640123872657761,
+            "raw_response": "0.7640"
+          },
+          {
+            "index": 1,
+            "document": "Pasta is made from wheat flour.",
+            "relevance_score": 0.05281402133724091,
+            "raw_response": "0.0528"
+          }
+        ],
+        "time": 0.06955504417419434,
+        "error": null
+      }
+    },
+    "test_empty": {
+      "test_case": {
+        "name": "test_empty",
+        "file": "tests/test_empty.json",
+        "query": "test",
+        "documents": []
+      },
+      "result": {
+        "success": true,
+        "results": [],
+        "time": 0,
+        "error": null
+      }
+    },
+    "test_invalid": {
+      "test_case": {
+        "name": "test_invalid",
+        "file": "tests/test_invalid.json",
+        "query": "test",
+        "documents": [
+          "doc"
+        ],
+        "model": "nonexistent"
+      },
+      "result": {
+        "success": true,
+        "results": [
+          {
+            "index": 0,
+            "document": "doc",
+            "relevance_score": 0.025371311474402143,
+            "raw_response": "0.0254"
+          }
+        ],
+        "time": 0.08825302124023438,
+        "error": null
+      }
+    },
+    "test_ml": {
+      "test_case": {
+        "name": "test_ml",
+        "file": "tests/test_ml.json",
+        "query": "What is machine learning?",
+        "documents": [
+          "Machine learning is a subset of artificial intelligence.",
+          "The weather today is sunny.",
+          "Deep learning uses neural networks."
+        ],
+        "instruction": "Find AI topics"
+      },
+      "result": {
+        "success": true,
+        "results": [
+          {
+            "index": 0,
+            "document": "Machine learning is a subset of artificial intelligence.",
+            "relevance_score": 0.9993929244195585,
+            "raw_response": "0.9994"
+          },
+          {
+            "index": 2,
+            "document": "Deep learning uses neural networks.",
+            "relevance_score": 0.0016809417013868685,
+            "raw_response": "0.0017"
+          },
+          {
+            "index": 1,
+            "document": "The weather today is sunny.",
+            "relevance_score": 1.606161070132327e-05,
+            "raw_response": "0.0000"
+          }
+        ],
+        "time": 0.07373619079589844,
+        "error": null
+      }
+    },
+    "test_simple": {
+      "test_case": {
+        "name": "test_simple",
+        "file": "tests/test_simple.json",
+        "query": "simple test",
+        "documents": [
+          "This is a test document"
+        ]
+      },
+      "result": {
+        "success": true,
+        "results": [
+          {
+            "index": 0,
+            "document": "This is a test document",
+            "relevance_score": 0.8958875884420037,
+            "raw_response": "0.8959"
+          }
+        ],
+        "time": 0.06551671028137207,
+        "error": null
+      }
+    }
+  },
+  "BAAI/bge-reranker-base": {
+    "test_capital": {
+      "test_case": {
+        "name": "test_capital",
+        "file": "tests/test_capital.json",
+        "query": "What is the capital of China?",
+        "documents": [
+          "The capital of China is Beijing.",
+          "China is a large country in Asia.",
+          "Paris is the capital of France."
+        ]
+      },
+      "result": {
+        "success": true,
+        "results": [
+          {
+            "index": 0,
+            "document": "The capital of China is Beijing.",
+            "relevance_score": 0.9993905498409864,
+            "raw_response": "0.9994"
+          },
+          {
+            "index": 1,
+            "document": "China is a large country in Asia.",
+            "relevance_score": 0.9064876908461501,
+            "raw_response": "0.9065"
+          },
+          {
+            "index": 2,
+            "document": "Paris is the capital of France.",
+            "relevance_score": 0.002115703400593114,
+            "raw_response": "0.0021"
+          }
+        ],
+        "time": 0.5645749568939209,
+        "error": null
+      }
+    },
+    "test_cooking": {
+      "test_case": {
+        "name": "test_cooking",
+        "file": "tests/test_cooking.json",
+        "query": "How to cook pasta?",
+        "documents": [
+          "Boil water, add pasta, cook 8-12 minutes.",
+          "Pasta is made from wheat flour.",
+          "Italy is famous for pasta."
+        ],
+        "top_n": 2
+      },
+      "result": {
+        "success": true,
+        "results": [
+          {
+            "index": 0,
+            "document": "Boil water, add pasta, cook 8-12 minutes.",
+            "relevance_score": 0.9150528966571871,
+            "raw_response": "0.9151"
+          },
+          {
+            "index": 1,
+            "document": "Pasta is made from wheat flour.",
+            "relevance_score": 0.5941981000707334,
+            "raw_response": "0.5942"
+          }
+        ],
+        "time": 0.04054570198059082,
+        "error": null
+      }
+    },
+    "test_empty": {
+      "test_case": {
+        "name": "test_empty",
+        "file": "tests/test_empty.json",
+        "query": "test",
+        "documents": []
+      },
+      "result": {
+        "success": true,
+        "results": [],
+        "time": 0,
+        "error": null
+      }
+    },
+    "test_invalid": {
+      "test_case": {
+        "name": "test_invalid",
+        "file": "tests/test_invalid.json",
+        "query": "test",
+        "documents": [
+          "doc"
+        ],
+        "model": "nonexistent"
+      },
+      "result": {
+        "success": true,
+        "results": [
+          {
+            "index": 0,
+            "document": "doc",
+            "relevance_score": 0.3024940958946663,
+            "raw_response": "0.3025"
+          }
+        ],
+        "time": 0.04283595085144043,
+        "error": null
+      }
+    },
+    "test_ml": {
+      "test_case": {
+        "name": "test_ml",
+        "file": "tests/test_ml.json",
+        "query": "What is machine learning?",
+        "documents": [
+          "Machine learning is a subset of artificial intelligence.",
+          "The weather today is sunny.",
+          "Deep learning uses neural networks."
+        ],
+        "instruction": "Find AI topics"
+      },
+      "result": {
+        "success": true,
+        "results": [
+          {
+            "index": 0,
+            "document": "Machine learning is a subset of artificial intelligence.",
+            "relevance_score": 0.9993461844496442,
+            "raw_response": "0.9993"
+          },
+          {
+            "index": 2,
+            "document": "Deep learning uses neural networks.",
+            "relevance_score": 0.007011795381497107,
+            "raw_response": "0.0070"
+          },
+          {
+            "index": 1,
+            "document": "The weather today is sunny.",
+            "relevance_score": 3.734356896287336e-05,
+            "raw_response": "0.0000"
+          }
+        ],
+        "time": 0.040750980377197266,
+        "error": null
+      }
+    },
+    "test_simple": {
+      "test_case": {
+        "name": "test_simple",
+        "file": "tests/test_simple.json",
+        "query": "simple test",
+        "documents": [
+          "This is a test document"
+        ]
+      },
+      "result": {
+        "success": true,
+        "results": [
+          {
+            "index": 0,
+            "document": "This is a test document",
+            "relevance_score": 0.9410069702643621,
+            "raw_response": "0.9410"
+          }
+        ],
+        "time": 0.03943300247192383,
+        "error": null
+      }
+    }
+  },
+  "BAAI/bge-reranker-large": {
+    "test_capital": {
+      "test_case": {
+        "name": "test_capital",
+        "file": "tests/test_capital.json",
+        "query": "What is the capital of China?",
+        "documents": [
+          "The capital of China is Beijing.",
+          "China is a large country in Asia.",
+          "Paris is the capital of France."
+        ]
+      },
+      "result": {
+        "success": true,
+        "results": [
+          {
+            "index": 0,
+            "document": "The capital of China is Beijing.",
+            "relevance_score": 0.9997175919220068,
+            "raw_response": "0.9997"
+          },
+          {
+            "index": 1,
+            "document": "China is a large country in Asia.",
+            "relevance_score": 0.21272225577472886,
+            "raw_response": "0.2127"
+          },
+          {
+            "index": 2,
+            "document": "Paris is the capital of France.",
+            "relevance_score": 0.000302973407808812,
+            "raw_response": "0.0003"
+          }
+        ],
+        "time": 1.1684508323669434,
+        "error": null
+      }
+    },
+    "test_cooking": {
+      "test_case": {
+        "name": "test_cooking",
+        "file": "tests/test_cooking.json",
+        "query": "How to cook pasta?",
+        "documents": [
+          "Boil water, add pasta, cook 8-12 minutes.",
+          "Pasta is made from wheat flour.",
+          "Italy is famous for pasta."
+        ],
+        "top_n": 2
+      },
+      "result": {
+        "success": true,
+        "results": [
+          {
+            "index": 0,
+            "document": "Boil water, add pasta, cook 8-12 minutes.",
+            "relevance_score": 0.7759445507683053,
+            "raw_response": "0.7759"
+          },
+          {
+            "index": 1,
+            "document": "Pasta is made from wheat flour.",
+            "relevance_score": 0.09219619882783585,
+            "raw_response": "0.0922"
+          }
+        ],
+        "time": 0.03710317611694336,
+        "error": null
+      }
+    },
+    "test_empty": {
+      "test_case": {
+        "name": "test_empty",
+        "file": "tests/test_empty.json",
+        "query": "test",
+        "documents": []
+      },
+      "result": {
+        "success": true,
+        "results": [],
+        "time": 0,
+        "error": null
+      }
+    },
+    "test_invalid": {
+      "test_case": {
+        "name": "test_invalid",
+        "file": "tests/test_invalid.json",
+        "query": "test",
+        "documents": [
+          "doc"
+        ],
+        "model": "nonexistent"
+      },
+      "result": {
+        "success": true,
+        "results": [
+          {
+            "index": 0,
+            "document": "doc",
+            "relevance_score": 0.018299332210213487,
+            "raw_response": "0.0183"
+          }
+        ],
+        "time": 0.03260612487792969,
+        "error": null
+      }
+    },
+    "test_ml": {
+      "test_case": {
+        "name": "test_ml",
+        "file": "tests/test_ml.json",
+        "query": "What is machine learning?",
+        "documents": [
+          "Machine learning is a subset of artificial intelligence.",
+          "The weather today is sunny.",
+          "Deep learning uses neural networks."
+        ],
+        "instruction": "Find AI topics"
+      },
+      "result": {
+        "success": true,
+        "results": [
+          {
+            "index": 0,
+            "document": "Machine learning is a subset of artificial intelligence.",
+            "relevance_score": 0.9991135010723542,
+            "raw_response": "0.9991"
+          },
+          {
+            "index": 2,
+            "document": "Deep learning uses neural networks.",
+            "relevance_score": 0.05675689645649191,
+            "raw_response": "0.0568"
+          },
+          {
+            "index": 1,
+            "document": "The weather today is sunny.",
+            "relevance_score": 7.602479448313689e-05,
+            "raw_response": "0.0001"
+          }
+        ],
+        "time": 0.03550314903259277,
+        "error": null
+      }
+    },
+    "test_simple": {
+      "test_case": {
+        "name": "test_simple",
+        "file": "tests/test_simple.json",
+        "query": "simple test",
+        "documents": [
+          "This is a test document"
+        ]
+      },
+      "result": {
+        "success": true,
+        "results": [
+          {
+            "index": 0,
+            "document": "This is a test document",
+            "relevance_score": 0.893495410982761,
+            "raw_response": "0.8935"
+          }
+        ],
+        "time": 0.05102205276489258,
+        "error": null
+      }
+    }
+  }
+}

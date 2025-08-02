@@ -1,0 +1,8 @@
+{
+  "query": "What is the capital of China?",
+  "documents": [
+    "The capital of China is Beijing.",
+    "China is a large country in Asia.",
+    "Paris is the capital of France."
+  ]
+}
