@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 """
-Ollama Qwen3-Reranker Test
-=========================
+Ollama BGE-Reranker Test
+========================
 
-Tests Ollama's implementation of Qwen3-Reranker against standard test cases.
+Tests Ollama's implementation of BGE-Reranker against standard test cases.
 Used to validate the corrected implementation and compare with official results.
 
 This script helped identify that the original Ollama implementation was using
 text generation instead of the correct binary classification approach.
 
 Usage:
-    python test_ollama.py
+    python test_ollama_bge.py
 
 Environment Variables:
-    MODEL_NAME: Override default model name (default: qwen_reranker_v2)
+    MODEL_NAME: Override default model name (default: bge-reranker-v2-m3)
 """
 
 import json
@@ -28,7 +28,7 @@ load_dotenv()
 
 def get_model_name():
     """Get model name from environment variable or use default"""
-    return os.getenv("MODEL_NAME", "qwen_reranker_v2")
+    return os.getenv("MODEL_NAME", "bge-reranker-v2-m3")
 
 def load_test_cases():
     """Load test cases from JSON files in tests/ directory"""
@@ -109,8 +109,8 @@ def test_ollama_reranker(test_case):
         }
 
 def main():
-    """Run Ollama tests only"""
-    print("🧪 Ollama Qwen3-Reranker Test")
+    """Run Ollama BGE-Reranker tests only"""
+    print("🧪 Ollama BGE-Reranker Test")
     print("=" * 40)
     
     results = {}
@@ -165,7 +165,7 @@ def main():
     os.makedirs("results", exist_ok=True)
     
     # Save results
-    results_file = "results/ollama_results.json"
+    results_file = "results/bge_ollama_results.json"
     with open(results_file, "w") as f:
         json.dump(results, f, indent=2)
     

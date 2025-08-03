@@ -41,6 +41,8 @@ def load_test_cases():
                 test_case["top_n"] = test_data["top_n"]
             if "model" in test_data:
                 test_case["model"] = test_data["model"]
+            if "_test_metadata" in test_data:
+                test_case["_test_metadata"] = test_data["_test_metadata"]
                 
             test_cases.append(test_case)
             
