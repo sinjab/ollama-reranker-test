@@ -38,18 +38,26 @@ A comprehensive testing framework for BGE and Qwen reranker models. This project
 ## 📊 Supported Models
 
 ### BGE Rerankers
-| Model | Performance | Use Case |
-|-------|-------------|----------|
-| `BAAI/bge-reranker-v2-m3` | High | Production workloads |
-| `BAAI/bge-reranker-base` | Balanced | General purpose |
-| `BAAI/bge-reranker-large` | Maximum | High accuracy needs |
+| Model | Performance | Use Case | Quantization |
+|-------|-------------|----------|--------------|
+| `BAAI/bge-reranker-v2-m3` | High | Production workloads | Q4_K_M GGUF |
+| `BAAI/bge-reranker-base` | Balanced | General purpose | Q4_K_M GGUF |
+| `BAAI/bge-reranker-large` | Maximum | High accuracy needs | Q4_K_M GGUF |
 
 ### Qwen Rerankers
-| Model | Performance | Use Case |
-|-------|-------------|----------|
-| `Qwen/Qwen3-Reranker-0.6B` | Fast | Lightweight reasoning |
-| `Qwen/Qwen3-Reranker-4B` | High | Advanced reasoning |
-| `Qwen/Qwen3-Reranker-8B` | Maximum | Best accuracy |
+| Model | Performance | Use Case | Quantization |
+|-------|-------------|----------|--------------|
+| `Qwen/Qwen3-Reranker-0.6B` | Fast | Lightweight reasoning | Q4_K_M GGUF |
+| `Qwen/Qwen3-Reranker-4B` | High | Advanced reasoning | Q4_K_M GGUF |
+| `Qwen/Qwen3-Reranker-8B` | Maximum | Best accuracy | Q4_K_M GGUF |
+
+> **📦 Model Versions**: This testing framework uses Q4_K_M quantized GGUF versions of all models for optimal performance and reduced memory usage. The Ollama implementations utilize these quantized models:
+> - `bge-reranker-base-q4_k_m.gguf`
+> - `bge-reranker-large-q4_k_m.gguf` 
+> - `bge-reranker-v2-m3-Q4_K_M.gguf`
+> - `Qwen3-Reranker-0.6B.Q4_K_M.gguf`
+> - `Qwen3-Reranker-4B.Q4_K_M.gguf`
+> - `Qwen3-Reranker-8B.Q4_K_M.gguf`
 
 ## 🧪 Test Cases
 
@@ -171,8 +179,11 @@ ollama-reranker-test/
 ## ⚙️ Configuration
 
 ### Model Settings
+- **Quantization**: Q4_K_M GGUF format for 4-bit quantization with mixed precision
+- **Memory Optimization**: Quantized models reduce VRAM usage by ~75% 
+- **Performance**: Maintains accuracy while significantly improving inference speed
 - **Normalization**: `normalize=True` for 0-1 confidence scores
-- **FP16**: `use_fp16=True` for performance optimization
+- **FP16**: `use_fp16=True` for performance optimization on compatible hardware
 - **Caching**: Models are cached to avoid repeated downloads
 
 ### Adding New Models
@@ -196,7 +207,7 @@ MODEL_CONFIGS = {
 
 ## 📊 Performance Benchmarks
 
-Based on comprehensive testing across all models:
+Based on comprehensive testing across all models using **Q4_K_M quantized GGUF versions**:
 
 ### Speed Rankings (Fastest to Slowest)
 
