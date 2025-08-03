@@ -8,5 +8,7 @@ dependencies = [
     "torch",
     "transformers",
     "FlagEmbedding",
-    "numpy"
+    "numpy",
+    "requests",
+    "python-dotenv"
 ]
