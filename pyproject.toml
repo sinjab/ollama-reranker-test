@@ -1,8 +1,9 @@
 [project]
-name = "bge-reranker-test"
+name = "ollama-reranker-test"
 version = "0.1.0"
-description = "Add your description here"
+description = "Unified testing framework for reranker models (BGE, Qwen) with support for both official implementations and Ollama API"
 readme = "README.md"
+license = { text = "MIT" }
 requires-python = ">=3.12"
 dependencies = [
     "torch",
