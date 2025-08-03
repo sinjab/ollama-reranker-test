@@ -1,6 +1,6 @@
-# BGE Reranker Testing Suite
+# Unified Reranker Testing Suite
 
-A comprehensive testing framework for BGE (BAAI General Embedding) reranker models. This project validates and benchmarks different BGE reranker implementations for document ranking and relevance scoring.
+A comprehensive testing framework for BGE and Qwen reranker models. This project validates and benchmarks different reranker implementations for document ranking and relevance scoring.
 
 ## 🚀 Quick Start
 
@@ -21,22 +21,64 @@ A comprehensive testing framework for BGE (BAAI General Embedding) reranker mode
    uv sync
    ```
 
-3. **Run the test suite**:
+3. **Run the unified test suite**:
    ```bash
-   uv run python test_official.py
+   # Test all models and implementations
+   uv run python test_reranker.py
+   
+   # Test specific model type
+   uv run python test_reranker.py --model-type bge
+   uv run python test_reranker.py --model-type qwen
+   
+   # Test specific implementation
+   uv run python test_reranker.py --implementation official
+   uv run python test_reranker.py --implementation ollama
+   
+   # Test specific model
+   uv run python test_reranker.py --model BAAI/bge-reranker-v2-m3
+   uv run python test_reranker.py --model qwen_reranker_v2
    ```
 
 ## 📊 Models Tested
 
-The test suite validates the following BGE reranker models:
+The test suite validates the following reranker models:
 
+### BGE Rerankers
 | Model | Type | Performance | Use Case |
 |-------|------|-------------|----------|
 | `BAAI/bge-reranker-v2-m3` | Normal | High | Production workloads |
 | `BAAI/bge-reranker-base` | Normal | Balanced | General purpose |
 | `BAAI/bge-reranker-large` | Normal | Maximum | High accuracy needs |
 
-> **⚠️ Note**: The `BAAI/bge-reranker-v2-gemma` model has been excluded due to a known bug in the FlagEmbedding library that causes `nan` scores. This issue has been reported to the library maintainers.
+### Qwen Rerankers
+| Model | Type | Performance | Use Case |
+|-------|------|-------------|----------|
+| `Qwen/Qwen3-Reranker-0.6B` | LLM-based | High | Complex reasoning |
+
+> **⚠️ Note**: The `BAAI/bge-reranker-v2-gemma` model has been excluded due to a known bug in the FlagEmbedding library that causes `nan` scores.
+
+## 🏗️ Architecture
+
+### Unified Framework Benefits
+
+**Before (4 separate files)**:
+- `test_official_bge.py` - 220 lines
+- `test_official_qwen.py` - 259 lines  
+- `test_ollama_bge.py` - 185 lines
+- `test_ollama_qwen.py` - 185 lines
+- **Total**: 849 lines with massive duplication
+
+**After (1 unified file)**:
+- `test_reranker.py` - 400 lines
+- **Savings**: 53% reduction in code, 100% reduction in duplication
+
+### Key Improvements
+
+1. **Single Source of Truth**: All test logic in one place
+2. **Configurable Testing**: Command-line arguments for flexible testing
+3. **Consistent Output**: Standardized result formats
+4. **Easy Maintenance**: Changes only need to be made once
+5. **Backward Compatibility**: Wrapper scripts maintain old interface
 
 ## 🧪 Test Cases
 
@@ -65,24 +107,34 @@ The framework includes comprehensive test cases covering:
 ## 📈 Sample Results
 
 ```
-🤖 REAL BGE-RERANKER TEST (FlagEmbedding)
+🤖 UNIFIED RERANKER TEST FRAMEWORK
 ==================================================
+
+🔧 Testing BGE OFFICIAL: BAAI/bge-reranker-v2-m3
+============================================================
 
 📋 Testing: test_ml
 Query: What is machine learning?
 Documents: 3
-✅ Real: SUCCESS (0.074s)
+✅ SUCCESS (0.074s)
 📈 Rankings:
   1. Machine learning is a subset of artificial intelli... (score: 0.9994)
   2. Deep learning uses neural networks.... (score: 0.0017)
   3. The weather today is sunny.... (score: 0.0000)
+
+📊 TEST SUMMARY
+==================================================
+📊 bge_official_BAAI_bge-reranker-v2-m3:
+  Total Tests: 6
+  Successful Tests: 6
+  Success Rate: 100.0%
 
 📊 OVERALL SUMMARY
 ========================================
 Total Tests: 18
 Successful Tests: 18
 Success Rate: 100.0%
-✅ BGE tests completed
+✅ Tests completed successfully
 ```
 
 ## 🛠️ Development
@@ -100,56 +152,31 @@ uv sync --extra dev
 uv shell
 ```
 
-### Running Tests
+### Adding New Models
 
-```bash
-# Run all tests
-uv run python test_official.py
+To add a new model type, simply update the `MODEL_CONFIGS` dictionary in `test_reranker.py`:
 
-# Run specific test file
-uv run python test_ollama.py
-
-# Run with verbose output
-uv run python test_official.py --verbose
-```
-
-### Code Quality
-
-```bash
-# Format code
-uv run black .
-uv run isort .
-
-# Type checking
-uv run mypy .
-
-# Linting
-uv run ruff check .
-
-# Run all quality checks
-uv run ruff check . && uv run black --check . && uv run isort --check-only .
-```
-
-### Adding Dependencies
-
-```bash
-# Add production dependency
-uv add package-name
-
-# Add development dependency
-uv add --dev package-name
-
-# Update dependencies
-uv lock --upgrade
+```python
+MODEL_CONFIGS = {
+    'new_model_type': {
+        'official': {
+            'models': ["path/to/model"],
+            'default': "path/to/model"
+        },
+        'ollama': {
+            'default': "ollama_model_name"
+        }
+    }
+}
 ```
 
 ## 📁 Project Structure
 
 ```
 bge-reranker-test/
-├── test_official.py          # Main test runner
-├── test_ollama.py           # Ollama integration tests
-├── tests/                   # Test case definitions
+├── test_reranker.py          # 🆕 Unified test framework
+├── compare_results.py        # 📊 Results comparison tool
+├── tests/                   # 📋 Test case definitions
 │   ├── test_basic.json
 │   ├── test_capital.json
 │   ├── test_cooking.json
@@ -157,12 +184,15 @@ bge-reranker-test/
 │   ├── test_invalid.json
 │   ├── test_ml.json
 │   └── test_simple.json
-├── results/                 # Test output and reports
-├── pyproject.toml          # Project configuration
-└── README.md              # This file
+├── results/                 # 📈 Generated test results
+│   ├── bge_official_*.json
+│   ├── qwen_official_*.json
+│   ├── bge_ollama_*.json
+│   └── qwen_ollama_*.json
+└── pyproject.toml          # 📦 Project configuration
 ```
 
-## 🔧 Configuration
+## �� Configuration
 
 ### Model Settings
 
@@ -194,7 +224,7 @@ All models use the following configuration:
    ```bash
    # Clear cache and retry
    rm -rf ~/.cache/huggingface/hub/models--BAAI--*
-   uv run python test_official.py
+   uv run python test_reranker.py
    ```
 
 2. **Memory Issues**:
