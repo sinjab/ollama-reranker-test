@@ -1,0 +1,386 @@
+{
+  "model_analysis": {
+    "bge_official_BAAI_bge-reranker-v2-m3": {
+      "total_tests": 6,
+      "successful_tests": 6,
+      "success_rate": 100.0,
+      "avg_time": 0.28495172659556073,
+      "min_time": 0,
+      "max_time": 1.3490612506866455
+    },
+    "bge_ollama_bge-base": {
+      "total_tests": 6,
+      "successful_tests": 6,
+      "success_rate": 100.0,
+      "avg_time": 0.08165164788564046,
+      "min_time": 0.0023860931396484375,
+      "max_time": 0.3846588134765625
+    },
+    "qwen_official_Qwen_Qwen3-Reranker-4B": {
+      "total_tests": 6,
+      "successful_tests": 6,
+      "success_rate": 100.0,
+      "avg_time": 1.4475555817286174,
+      "min_time": 0,
+      "max_time": 4.479085922241211
+    },
+    "qwen_ollama_qwen3-8b": {
+      "total_tests": 6,
+      "successful_tests": 6,
+      "success_rate": 100.0,
+      "avg_time": 1.4504811366399128,
+      "min_time": 0.0012469291687011719,
+      "max_time": 8.608994960784912
+    },
+    "bge_ollama_bge-large": {
+      "total_tests": 6,
+      "successful_tests": 6,
+      "success_rate": 100.0,
+      "avg_time": 0.07354974746704102,
+      "min_time": 0.0018279552459716797,
+      "max_time": 0.3365011215209961
+    },
+    "qwen_ollama_qwen3-0.6b": {
+      "total_tests": 6,
+      "successful_tests": 6,
+      "success_rate": 100.0,
+      "avg_time": 0.5784789323806763,
+      "min_time": 0.0025801658630371094,
+      "max_time": 3.3628358840942383
+    },
+    "bge_official_BAAI_bge-reranker-large": {
+      "total_tests": 6,
+      "successful_tests": 6,
+      "success_rate": 100.0,
+      "avg_time": 0.2138380209604899,
+      "min_time": 0,
+      "max_time": 1.1323671340942383
+    },
+    "bge_official_BAAI_bge-reranker-base": {
+      "total_tests": 6,
+      "successful_tests": 6,
+      "success_rate": 100.0,
+      "avg_time": 0.1344083547592163,
+      "min_time": 0,
+      "max_time": 0.5945310592651367
+    },
+    "qwen_ollama_qwen3-4b": {
+      "total_tests": 6,
+      "successful_tests": 6,
+      "success_rate": 100.0,
+      "avg_time": 0.8652573029200236,
+      "min_time": 0.0016188621520996094,
+      "max_time": 5.114803075790405
+    },
+    "qwen_official_Qwen_Qwen3-Reranker-8B": {
+      "total_tests": 6,
+      "successful_tests": 6,
+      "success_rate": 100.0,
+      "avg_time": 2.5320221980412803,
+      "min_time": 0,
+      "max_time": 7.675822973251343
+    },
+    "qwen_official_Qwen_Qwen3-Reranker-0.6B": {
+      "total_tests": 6,
+      "successful_tests": 6,
+      "success_rate": 100.0,
+      "avg_time": 0.25495052337646484,
+      "min_time": 0,
+      "max_time": 0.480057954788208
+    },
+    "bge_ollama_bge-v2-m3": {
+      "total_tests": 6,
+      "successful_tests": 6,
+      "success_rate": 100.0,
+      "avg_time": 0.07453219095865886,
+      "min_time": 0.0028150081634521484,
+      "max_time": 0.33963799476623535
+    }
+  },
+  "performance_ranking": [
+    [
+      "bge_ollama_bge-large",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.07354974746704102,
+        "min_time": 0.0018279552459716797,
+        "max_time": 0.3365011215209961
+      }
+    ],
+    [
+      "bge_ollama_bge-v2-m3",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.07453219095865886,
+        "min_time": 0.0028150081634521484,
+        "max_time": 0.33963799476623535
+      }
+    ],
+    [
+      "bge_ollama_bge-base",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.08165164788564046,
+        "min_time": 0.0023860931396484375,
+        "max_time": 0.3846588134765625
+      }
+    ],
+    [
+      "bge_official_BAAI_bge-reranker-base",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.1344083547592163,
+        "min_time": 0,
+        "max_time": 0.5945310592651367
+      }
+    ],
+    [
+      "bge_official_BAAI_bge-reranker-large",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.2138380209604899,
+        "min_time": 0,
+        "max_time": 1.1323671340942383
+      }
+    ],
+    [
+      "qwen_official_Qwen_Qwen3-Reranker-0.6B",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.25495052337646484,
+        "min_time": 0,
+        "max_time": 0.480057954788208
+      }
+    ],
+    [
+      "bge_official_BAAI_bge-reranker-v2-m3",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.28495172659556073,
+        "min_time": 0,
+        "max_time": 1.3490612506866455
+      }
+    ],
+    [
+      "qwen_ollama_qwen3-0.6b",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.5784789323806763,
+        "min_time": 0.0025801658630371094,
+        "max_time": 3.3628358840942383
+      }
+    ],
+    [
+      "qwen_ollama_qwen3-4b",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.8652573029200236,
+        "min_time": 0.0016188621520996094,
+        "max_time": 5.114803075790405
+      }
+    ],
+    [
+      "qwen_official_Qwen_Qwen3-Reranker-4B",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 1.4475555817286174,
+        "min_time": 0,
+        "max_time": 4.479085922241211
+      }
+    ],
+    [
+      "qwen_ollama_qwen3-8b",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 1.4504811366399128,
+        "min_time": 0.0012469291687011719,
+        "max_time": 8.608994960784912
+      }
+    ],
+    [
+      "qwen_official_Qwen_Qwen3-Reranker-8B",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 2.5320221980412803,
+        "min_time": 0,
+        "max_time": 7.675822973251343
+      }
+    ]
+  ],
+  "success_rate_ranking": [
+    [
+      "bge_official_BAAI_bge-reranker-v2-m3",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.28495172659556073,
+        "min_time": 0,
+        "max_time": 1.3490612506866455
+      }
+    ],
+    [
+      "bge_ollama_bge-base",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.08165164788564046,
+        "min_time": 0.0023860931396484375,
+        "max_time": 0.3846588134765625
+      }
+    ],
+    [
+      "qwen_official_Qwen_Qwen3-Reranker-4B",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 1.4475555817286174,
+        "min_time": 0,
+        "max_time": 4.479085922241211
+      }
+    ],
+    [
+      "qwen_ollama_qwen3-8b",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 1.4504811366399128,
+        "min_time": 0.0012469291687011719,
+        "max_time": 8.608994960784912
+      }
+    ],
+    [
+      "bge_ollama_bge-large",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.07354974746704102,
+        "min_time": 0.0018279552459716797,
+        "max_time": 0.3365011215209961
+      }
+    ],
+    [
+      "qwen_ollama_qwen3-0.6b",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.5784789323806763,
+        "min_time": 0.0025801658630371094,
+        "max_time": 3.3628358840942383
+      }
+    ],
+    [
+      "bge_official_BAAI_bge-reranker-large",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.2138380209604899,
+        "min_time": 0,
+        "max_time": 1.1323671340942383
+      }
+    ],
+    [
+      "bge_official_BAAI_bge-reranker-base",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.1344083547592163,
+        "min_time": 0,
+        "max_time": 0.5945310592651367
+      }
+    ],
+    [
+      "qwen_ollama_qwen3-4b",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.8652573029200236,
+        "min_time": 0.0016188621520996094,
+        "max_time": 5.114803075790405
+      }
+    ],
+    [
+      "qwen_official_Qwen_Qwen3-Reranker-8B",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 2.5320221980412803,
+        "min_time": 0,
+        "max_time": 7.675822973251343
+      }
+    ],
+    [
+      "qwen_official_Qwen_Qwen3-Reranker-0.6B",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.25495052337646484,
+        "min_time": 0,
+        "max_time": 0.480057954788208
+      }
+    ],
+    [
+      "bge_ollama_bge-v2-m3",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.07453219095865886,
+        "min_time": 0.0028150081634521484,
+        "max_time": 0.33963799476623535
+      }
+    ]
+  ],
+  "model_groups": {
+    "bge_models": [
+      "bge_official_BAAI_bge-reranker-v2-m3",
+      "bge_ollama_bge-base",
+      "bge_ollama_bge-large",
+      "bge_official_BAAI_bge-reranker-large",
+      "bge_official_BAAI_bge-reranker-base",
+      "bge_ollama_bge-v2-m3"
+    ],
+    "qwen_models": [
+      "qwen_official_Qwen_Qwen3-Reranker-4B",
+      "qwen_ollama_qwen3-8b",
+      "qwen_ollama_qwen3-0.6b",
+      "qwen_ollama_qwen3-4b",
+      "qwen_official_Qwen_Qwen3-Reranker-8B",
+      "qwen_official_Qwen_Qwen3-Reranker-0.6B"
+    ]
+  }
+}

@@ -113,6 +113,50 @@ def analyze_performance(results1: Dict, results2: Dict) -> Dict[str, Any]:
         "model1_faster": speed_ratio > 1
     }
 
+def get_model_stats(results: Dict) -> Dict[str, Any]:
+    """Get statistics for a single model"""
+    total_tests = len(results)
+    successful_tests = sum(1 for r in results.values() if r["result"]["success"])
+    successful_times = [r["result"]["time"] for r in results.values() if r["result"]["success"]]
+    
+    avg_time = sum(successful_times) / len(successful_times) if successful_times else 0
+    min_time = min(successful_times) if successful_times else 0
+    max_time = max(successful_times) if successful_times else 0
+    
+    return {
+        "total_tests": total_tests,
+        "successful_tests": successful_tests,
+        "success_rate": (successful_tests / total_tests * 100) if total_tests > 0 else 0,
+        "avg_time": avg_time,
+        "min_time": min_time,
+        "max_time": max_time
+    }
+
+def compare_models_on_test_case(model1_results: Dict, model2_results: Dict, test_name: str, model1_name: str, model2_name: str) -> Dict[str, Any]:
+    """Compare two models on a specific test case"""
+    if test_name not in model1_results or test_name not in model2_results:
+        return {}
+    
+    result1 = model1_results[test_name]["result"]
+    result2 = model2_results[test_name]["result"]
+    
+    if not result1["success"] or not result2["success"]:
+        return {}
+    
+    comparison = compare_rankings(
+        result1["results"], 
+        result2["results"],
+        model1_name, 
+        model2_name
+    )
+    
+    return {
+        "test_name": test_name,
+        "model1_time": result1["time"],
+        "model2_time": result2["time"],
+        "comparison": comparison
+    }
+
 def main():
     """Run comprehensive comparison analysis"""
     print("🔍 COMPREHENSIVE RERANKER RESULTS COMPARISON")
@@ -141,6 +185,33 @@ def main():
     print(f"\n📊 BGE Models: {len(bge_models)}")
     print(f"📊 Qwen Models: {len(qwen_models)}")
     
+    # Individual model analysis
+    print(f"\n📋 INDIVIDUAL MODEL ANALYSIS")
+    print("=" * 70)
+    
+    model_stats = {}
+    for model_name, results in all_results.items():
+        stats = get_model_stats(results)
+        model_stats[model_name] = stats
+        
+        print(f"\n🔍 {model_name}")
+        print("-" * 40)
+        print(f"  Total tests: {stats['total_tests']}")
+        print(f"  Successful tests: {stats['successful_tests']}")
+        print(f"  Success rate: {stats['success_rate']:.1f}%")
+        print(f"  Average time: {stats['avg_time']:.3f}s")
+        print(f"  Time range: {stats['min_time']:.3f}s - {stats['max_time']:.3f}s")
+        
+        # Show sample rankings for first successful test
+        for test_name, test_result in results.items():
+            if test_result["result"]["success"] and test_result["result"]["results"]:
+                print(f"  Sample rankings from {test_name}:")
+                for i, res in enumerate(test_result["result"]["results"][:3]):  # Show top 3
+                    doc = res["document"]
+                    score = res["relevance_score"]
+                    print(f"    {i+1}. {doc[:50]}... (score: {score:.4f})")
+                break
+    
     # Compare BGE models
     if len(bge_models) > 1:
         print(f"\n🔍 BGE MODEL COMPARISONS")
@@ -154,30 +225,31 @@ def main():
                 
                 print(f"\n📊 Comparing {model1_name} vs {model2_name}")
                 
-                # Get first test case for comparison
-                test_cases1 = list(bge_models[model1_name].keys())
-                test_cases2 = list(bge_models[model2_name].keys())
+                # Compare on all common test cases
+                test_cases1 = set(bge_models[model1_name].keys())
+                test_cases2 = set(bge_models[model2_name].keys())
+                common_tests = test_cases1 & test_cases2
                 
-                if test_cases1 and test_cases2:
-                    test_name = test_cases1[0]  # Use first test case
+                if common_tests:
+                    # Use first common test for detailed comparison
+                    test_name = list(common_tests)[0]
+                    comparison_result = compare_models_on_test_case(
+                        bge_models[model1_name], 
+                        bge_models[model2_name], 
+                        test_name, 
+                        model1_name, 
+                        model2_name
+                    )
                     
-                    result1 = bge_models[model1_name][test_name]["result"]
-                    result2 = bge_models[model2_name][test_name]["result"]
-                    
-                    if result1["success"] and result2["success"]:
-                        comparison = compare_rankings(
-                            result1["results"], 
-                            result2["results"],
-                            model1_name, 
-                            model2_name
-                        )
-                        
-                        print(f"  Top rank match: {'✅' if comparison['top_rank_match'] else '❌'}")
-                        print(f"  Full ranking match: {'✅' if comparison['ranking_match'] else '❌'}")
-                        print(f"  Avg score difference: {comparison['avg_score_difference']:.4f}")
-                        print(f"  Correlation: {comparison['correlation']:.4f}")
-                        print(f"  {model1_name} time: {result1['time']:.3f}s")
-                        print(f"  {model2_name} time: {result2['time']:.3f}s")
+                    if comparison_result:
+                        comp = comparison_result["comparison"]
+                        print(f"  Test case: {test_name}")
+                        print(f"  Top rank match: {'✅' if comp['top_rank_match'] else '❌'}")
+                        print(f"  Full ranking match: {'✅' if comp['ranking_match'] else '❌'}")
+                        print(f"  Avg score difference: {comp['avg_score_difference']:.4f}")
+                        print(f"  Correlation: {comp['correlation']:.4f}")
+                        print(f"  {model1_name} time: {comparison_result['model1_time']:.3f}s")
+                        print(f"  {model2_name} time: {comparison_result['model2_time']:.3f}s")
     
     # Compare Qwen models
     if len(qwen_models) > 1:
@@ -192,57 +264,31 @@ def main():
                 
                 print(f"\n📊 Comparing {model1_name} vs {model2_name}")
                 
-                # Get first test case for comparison
-                test_cases1 = list(qwen_models[model1_name].keys())
-                test_cases2 = list(qwen_models[model2_name].keys())
+                # Compare on all common test cases
+                test_cases1 = set(qwen_models[model1_name].keys())
+                test_cases2 = set(qwen_models[model2_name].keys())
+                common_tests = test_cases1 & test_cases2
                 
-                if test_cases1 and test_cases2:
-                    test_name = test_cases1[0]  # Use first test case
+                if common_tests:
+                    # Use first common test for detailed comparison
+                    test_name = list(common_tests)[0]
+                    comparison_result = compare_models_on_test_case(
+                        qwen_models[model1_name], 
+                        qwen_models[model2_name], 
+                        test_name, 
+                        model1_name, 
+                        model2_name
+                    )
                     
-                    result1 = qwen_models[model1_name][test_name]["result"]
-                    result2 = qwen_models[model2_name][test_name]["result"]
-                    
-                    if result1["success"] and result2["success"]:
-                        comparison = compare_rankings(
-                            result1["results"], 
-                            result2["results"],
-                            model1_name, 
-                            model2_name
-                        )
-                        
-                        print(f"  Top rank match: {'✅' if comparison['top_rank_match'] else '❌'}")
-                        print(f"  Full ranking match: {'✅' if comparison['ranking_match'] else '❌'}")
-                        print(f"  Avg score difference: {comparison['avg_score_difference']:.4f}")
-                        print(f"  Correlation: {comparison['correlation']:.4f}")
-                        print(f"  {model1_name} time: {result1['time']:.3f}s")
-                        print(f"  {model2_name} time: {result2['time']:.3f}s")
-    
-    # Detailed analysis of each model
-    print(f"\n📋 DETAILED MODEL ANALYSIS")
-    print("=" * 70)
-    
-    for model_name, results in all_results.items():
-        print(f"\n🔍 {model_name}")
-        print("-" * 40)
-        
-        total_tests = len(results)
-        successful_tests = sum(1 for r in results.values() if r["result"]["success"])
-        avg_time = sum(r["result"]["time"] for r in results.values() if r["result"]["success"]) / successful_tests if successful_tests > 0 else 0
-        
-        print(f"  Total tests: {total_tests}")
-        print(f"  Successful tests: {successful_tests}")
-        print(f"  Success rate: {successful_tests/total_tests*100:.1f}%")
-        print(f"  Average time: {avg_time:.3f}s")
-        
-        # Show sample rankings for first successful test
-        for test_name, test_result in results.items():
-            if test_result["result"]["success"] and test_result["result"]["results"]:
-                print(f"  Sample rankings from {test_name}:")
-                for i, res in enumerate(test_result["result"]["results"][:3]):  # Show top 3
-                    doc = res["document"]
-                    score = res["relevance_score"]
-                    print(f"    {i+1}. {doc[:50]}... (score: {score:.4f})")
-                break
+                    if comparison_result:
+                        comp = comparison_result["comparison"]
+                        print(f"  Test case: {test_name}")
+                        print(f"  Top rank match: {'✅' if comp['top_rank_match'] else '❌'}")
+                        print(f"  Full ranking match: {'✅' if comp['ranking_match'] else '❌'}")
+                        print(f"  Avg score difference: {comp['avg_score_difference']:.4f}")
+                        print(f"  Correlation: {comp['correlation']:.4f}")
+                        print(f"  {model1_name} time: {comparison_result['model1_time']:.3f}s")
+                        print(f"  {model2_name} time: {comparison_result['model2_time']:.3f}s")
     
     # Cross-model comparison (BGE vs Qwen)
     if bge_models and qwen_models:
@@ -255,61 +301,56 @@ def main():
         
         print(f"📊 Comparing {bge_model_name} vs {qwen_model_name}")
         
-        # Get first test case for comparison
-        bge_test_cases = list(bge_models[bge_model_name].keys())
-        qwen_test_cases = list(qwen_models[qwen_model_name].keys())
+        # Compare on all common test cases
+        bge_test_cases = set(bge_models[bge_model_name].keys())
+        qwen_test_cases = set(qwen_models[qwen_model_name].keys())
+        common_tests = bge_test_cases & qwen_test_cases
         
-        if bge_test_cases and qwen_test_cases:
-            test_name = bge_test_cases[0]  # Use first test case
+        if common_tests:
+            # Use first common test for detailed comparison
+            test_name = list(common_tests)[0]
+            comparison_result = compare_models_on_test_case(
+                bge_models[bge_model_name], 
+                qwen_models[qwen_model_name], 
+                test_name, 
+                bge_model_name, 
+                qwen_model_name
+            )
             
-            bge_result = bge_models[bge_model_name][test_name]["result"]
-            qwen_result = qwen_models[qwen_model_name][test_name]["result"]
-            
-            if bge_result["success"] and qwen_result["success"]:
-                comparison = compare_rankings(
-                    bge_result["results"], 
-                    qwen_result["results"],
-                    bge_model_name, 
-                    qwen_model_name
-                )
-                
-                print(f"  Top rank match: {'✅' if comparison['top_rank_match'] else '❌'}")
-                print(f"  Full ranking match: {'✅' if comparison['ranking_match'] else '❌'}")
-                print(f"  Avg score difference: {comparison['avg_score_difference']:.4f}")
-                print(f"  Correlation: {comparison['correlation']:.4f}")
-                print(f"  {bge_model_name} time: {bge_result['time']:.3f}s")
-                print(f"  {qwen_model_name} time: {qwen_result['time']:.3f}s")
+            if comparison_result:
+                comp = comparison_result["comparison"]
+                print(f"  Test case: {test_name}")
+                print(f"  Top rank match: {'✅' if comp['top_rank_match'] else '❌'}")
+                print(f"  Full ranking match: {'✅' if comp['ranking_match'] else '❌'}")
+                print(f"  Avg score difference: {comp['avg_score_difference']:.4f}")
+                print(f"  Correlation: {comp['correlation']:.4f}")
+                print(f"  {bge_model_name} time: {comparison_result['model1_time']:.3f}s")
+                print(f"  {qwen_model_name} time: {comparison_result['model2_time']:.3f}s")
     
     # Performance summary
     print(f"\n⚡ PERFORMANCE SUMMARY")
     print("=" * 50)
     
-    all_times = {}
-    for model_name, results in all_results.items():
-        successful_times = [r["result"]["time"] for r in results.values() if r["result"]["success"]]
-        if successful_times:
-            all_times[model_name] = {
-                "avg_time": sum(successful_times) / len(successful_times),
-                "min_time": min(successful_times),
-                "max_time": max(successful_times),
-                "total_tests": len(successful_times)
-            }
-    
     # Sort by average time
-    sorted_models = sorted(all_times.items(), key=lambda x: x[1]["avg_time"])
+    sorted_models = sorted(model_stats.items(), key=lambda x: x[1]["avg_time"])
     
     print("Models ranked by average response time (fastest first):")
     for i, (model_name, stats) in enumerate(sorted_models, 1):
         print(f"  {i}. {model_name}: {stats['avg_time']:.3f}s (min: {stats['min_time']:.3f}s, max: {stats['max_time']:.3f}s)")
     
+    # Success rate summary
+    print(f"\n📊 SUCCESS RATE SUMMARY")
+    print("=" * 40)
+    
+    sorted_by_success = sorted(model_stats.items(), key=lambda x: x[1]["success_rate"], reverse=True)
+    for model_name, stats in sorted_by_success:
+        print(f"  {model_name}: {stats['success_rate']:.1f}% ({stats['successful_tests']}/{stats['total_tests']})")
+    
     # Save comprehensive comparison
     comparison_data = {
-        "model_analysis": {name: {
-            "total_tests": len(results),
-            "successful_tests": sum(1 for r in results.values() if r["result"]["success"]),
-            "avg_time": all_times.get(name, {}).get("avg_time", 0)
-        } for name, results in all_results.items()},
+        "model_analysis": model_stats,
         "performance_ranking": sorted_models,
+        "success_rate_ranking": sorted_by_success,
         "model_groups": {
             "bge_models": list(bge_models.keys()),
             "qwen_models": list(qwen_models.keys())

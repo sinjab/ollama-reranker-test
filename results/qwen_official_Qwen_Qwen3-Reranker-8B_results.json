@@ -1,0 +1,178 @@
+{
+  "test_capital": {
+    "test_case": {
+      "name": "test_capital",
+      "file": "tests/test_capital.json",
+      "query": "What is the capital of China?",
+      "documents": [
+        "The capital of China is Beijing.",
+        "China is a large country in Asia.",
+        "Paris is the capital of France."
+      ]
+    },
+    "result": {
+      "success": true,
+      "results": [
+        {
+          "index": 0,
+          "document": "The capital of China is Beijing.",
+          "relevance_score": 0.9944860339164734,
+          "raw_response": "0.9945"
+        },
+        {
+          "index": 1,
+          "document": "China is a large country in Asia.",
+          "relevance_score": 4.733188688987866e-05,
+          "raw_response": "0.0000"
+        },
+        {
+          "index": 2,
+          "document": "Paris is the capital of France.",
+          "relevance_score": 3.8982969272183254e-05,
+          "raw_response": "0.0000"
+        }
+      ],
+      "time": 7.675822973251343,
+      "error": null
+    }
+  },
+  "test_cooking": {
+    "test_case": {
+      "name": "test_cooking",
+      "file": "tests/test_cooking.json",
+      "query": "How to cook pasta?",
+      "documents": [
+        "Boil water, add pasta, cook 8-12 minutes.",
+        "Pasta is made from wheat flour.",
+        "Italy is famous for pasta."
+      ],
+      "top_n": 2
+    },
+    "result": {
+      "success": true,
+      "results": [
+        {
+          "index": 0,
+          "document": "Boil water, add pasta, cook 8-12 minutes.",
+          "relevance_score": 0.9009831547737122,
+          "raw_response": "0.9010"
+        },
+        {
+          "index": 1,
+          "document": "Pasta is made from wheat flour.",
+          "relevance_score": 0.08580140024423599,
+          "raw_response": "0.0858"
+        }
+      ],
+      "time": 2.9380898475646973,
+      "error": null
+    }
+  },
+  "test_empty": {
+    "test_case": {
+      "name": "test_empty",
+      "file": "tests/test_empty.json",
+      "query": "test",
+      "documents": [],
+      "_test_metadata": {
+        "expected_to_fail": false,
+        "description": "Tests handling of empty document arrays (should return empty results)"
+      }
+    },
+    "result": {
+      "success": true,
+      "results": [],
+      "time": 0,
+      "error": null
+    }
+  },
+  "test_invalid": {
+    "test_case": {
+      "name": "test_invalid",
+      "file": "tests/test_invalid.json",
+      "query": "test",
+      "documents": [
+        "doc"
+      ],
+      "model": "nonexistent",
+      "_test_metadata": {
+        "expected_to_fail": true,
+        "description": "Tests proper error handling for nonexistent models"
+      }
+    },
+    "result": {
+      "success": true,
+      "results": [
+        {
+          "index": 0,
+          "document": "doc",
+          "relevance_score": 0.005838437937200069,
+          "raw_response": "0.0058"
+        }
+      ],
+      "time": 1.1905181407928467,
+      "error": null
+    }
+  },
+  "test_ml": {
+    "test_case": {
+      "name": "test_ml",
+      "file": "tests/test_ml.json",
+      "query": "What is machine learning?",
+      "documents": [
+        "Machine learning is a subset of artificial intelligence.",
+        "The weather today is sunny.",
+        "Deep learning uses neural networks."
+      ],
+      "instruction": "Find AI topics"
+    },
+    "result": {
+      "success": true,
+      "results": [
+        {
+          "index": 0,
+          "document": "Machine learning is a subset of artificial intelligence.",
+          "relevance_score": 0.9311031103134155,
+          "raw_response": "0.9311"
+        },
+        {
+          "index": 2,
+          "document": "Deep learning uses neural networks.",
+          "relevance_score": 0.18636822700500488,
+          "raw_response": "0.1864"
+        },
+        {
+          "index": 1,
+          "document": "The weather today is sunny.",
+          "relevance_score": 1.409823107678676e-05,
+          "raw_response": "0.0000"
+        }
+      ],
+      "time": 2.203289031982422,
+      "error": null
+    }
+  },
+  "test_simple": {
+    "test_case": {
+      "name": "test_simple",
+      "file": "tests/test_simple.json",
+      "query": "simple test",
+      "documents": [
+        "This is a test document"
+      ]
+    },
+    "result": {
+      "success": true,
+      "results": [
+        {
+          "index": 0,
+          "document": "This is a test document",
+          "relevance_score": 0.001384067116305232,
+          "raw_response": "0.0014"
+        }
+      ],
+      "time": 1.184413194656372,
+      "error": null
+    }
+  }
+}
