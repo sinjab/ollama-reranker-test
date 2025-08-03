@@ -1,4 +1,4 @@
-FROM ./models/bge-reranker-base-q4_k_m.gguf
+FROM ./models/bge-reranker-base-Q4_K_M.gguf
 TEMPLATE """{{ .Query }}{{ .Document }}"""
 PARAMETER stop "</s>"
 PARAMETER temperature 0.1

@@ -32,14 +32,30 @@ cd ollama-reranker-test
 ```
 
 ### 2. Download GGUF Models
-```bash
-# Download all models (~8.7GB total)
-./download_models.sh
+Download the quantized models from these Hugging Face repositories:
 
-# Or download specific models manually:
-# mkdir -p models && cd models
-# wget https://huggingface.co/BAAI/bge-reranker-base/resolve/main/gguf/model.gguf
-# ... (see download_models.sh for all URLs)
+**BGE Rerankers:**
+- BGE V2-M3: https://huggingface.co/gpustack/bge-reranker-v2-m3-GGUF/tree/main
+- BGE Large: https://huggingface.co/DrRos/bge-reranker-large-Q4_K_M-GGUF/tree/main  
+- BGE Base: https://huggingface.co/sabafallah/bge-reranker-base-Q4_K_M-GGUF/tree/main
+
+**Qwen3 Rerankers:**
+- Qwen3 8B: https://huggingface.co/QuantFactory/Qwen3-Reranker-8B-GGUF/tree/main
+- Qwen3 4B: https://huggingface.co/QuantFactory/Qwen3-Reranker-4B-GGUF/tree/main
+- Qwen3 0.6B: https://huggingface.co/QuantFactory/Qwen3-Reranker-0.6B-GGUF/tree/main
+
+```bash
+# Create models directory
+mkdir -p models
+
+# Download the .gguf files from the repositories above into models/
+# Example file names:
+# models/bge-reranker-v2-m3-Q4_K_M.gguf
+# models/bge-reranker-large-Q4_K_M.gguf
+# models/bge-reranker-base-Q4_K_M.gguf
+# models/Qwen3-Reranker-8B.Q4_K_M.gguf
+# models/Qwen3-Reranker-4B.Q4_K_M.gguf
+# models/Qwen3-Reranker-0.6B.Q4_K_M.gguf
 ```
 
 ### 3. Create Models with Ollama

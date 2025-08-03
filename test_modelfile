@@ -1,0 +1,1 @@
+FROM ./models/bge-reranker-base-q4_k_m.gguf
