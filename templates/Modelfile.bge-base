@@ -1,4 +1,5 @@
 FROM ./models/bge-reranker-base-Q4_K_M.gguf
-TEMPLATE """{{ .Query }}{{ .Document }}"""
-PARAMETER stop "</s>"
-PARAMETER temperature 0.1
+TEMPLATE """Query: {{ .Query }}
+Document: {{ .Document }}
+Relevance: """
+PARAMETER temperature 0

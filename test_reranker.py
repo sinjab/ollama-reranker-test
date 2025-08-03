@@ -54,11 +54,11 @@ MODEL_CONFIGS = {
         },
         'ollama': {
             'models': [
-                "bge-base",
-                "bge-large", 
-                "bge-v2-m3"
+                "bgetest",
+                "bgelarge", 
+                "bgev2m3"
             ],
-            'default': "bge-v2-m3"
+            'default': "bgev2m3"
         }
     },
     'qwen': {
@@ -72,11 +72,11 @@ MODEL_CONFIGS = {
         },
         'ollama': {
             'models': [
-                "qwen3-0.6b",
-                "qwen3-4b",
-                "qwen3-8b"
+                "qwen3p6b",
+                "qwen34b",
+                "qwen38b"
             ],
-            'default': "qwen3-0.6b"
+            'default': "qwen3p6b"
         }
     }
 }

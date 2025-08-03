@@ -32,30 +32,36 @@ create_model() {
 
 # Create BGE models
 echo ""
-echo "🔵 Creating BGE Models (Direct Scoring)..."
-create_model "bge-reranker-base" "templates/Modelfile.bge-base"
-create_model "bge-reranker-large" "templates/Modelfile.bge-large"
-create_model "bge-reranker-v2-m3" "templates/Modelfile.bge-v2-m3"
+echo "🔵 Creating BGE Models (Direct Scoring - Production Ready)..."
+create_model "bgetest" "templates/Modelfile.bge-base"
+create_model "bgelarge" "templates/Modelfile.bge-large"
+create_model "bgev2m3" "templates/Modelfile.bge-v2-m3"
 
 # Create Qwen3 models
 echo ""
-echo "🟡 Creating Qwen3 Models (Binary Classification)..."
-create_model "qwen3-reranker-0.6b" "templates/Modelfile.qwen3-0.6b"
-create_model "qwen3-reranker-4b" "templates/Modelfile.qwen3-4b"
-create_model "qwen3-reranker-8b" "templates/Modelfile.qwen3-8b"
+echo "🟡 Creating Qwen3 Models (Binary Classification - Functional)..."
+create_model "qwen3p6b" "templates/Modelfile.qwen3-0.6b"
+create_model "qwen34b" "templates/Modelfile.qwen3-4b"
+create_model "qwen38b" "templates/Modelfile.qwen3-8b"
 
 echo ""
 echo "🎉 Setup Complete!"
 echo "=================="
 echo ""
 echo "📋 Created Models:"
-ollama list | grep reranker || echo "No reranker models found (check for errors above)"
+ollama list | grep -E "(bgetest|bgelarge|bgev2m3|qwen3p6b|qwen34b|qwen38b)" || echo "No reranker models found (check for errors above)"
 
 echo ""
-echo "🧪 Test a model:"
+echo "🧪 Test a BGE model (production ready):"
 echo 'curl -X POST http://localhost:11434/api/rerank \'
 echo '  -H "Content-Type: application/json" \'
-echo '  -d '"'"'{"model": "bge-reranker-base", "query": "test", "documents": ["relevant doc", "irrelevant doc"]}'"'"
+echo '  -d '"'"'{"model": "bgev2m3", "query": "test", "documents": ["relevant doc", "irrelevant doc"]}'"'"
+
+echo ""
+echo "🧪 Test a Qwen3 model (functional ranking):"
+echo 'curl -X POST http://localhost:11434/api/rerank \'
+echo '  -H "Content-Type: application/json" \'
+echo '  -d '"'"'{"model": "qwen3p6b", "query": "test", "documents": ["relevant doc", "irrelevant doc"]}'"'"
 
 echo ""
 echo "📖 For usage examples, see MODEL_SETUP.md"

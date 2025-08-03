@@ -11,12 +11,28 @@
       ]
     },
     "result": {
-      "success": false,
-      "results": [],
-      "time": 0.0019016265869140625,
-      "error": "404 Client Error: Not Found for url: http://localhost:11434/api/rerank"
+      "success": true,
+      "results": [
+        {
+          "index": 0,
+          "document": "The capital of China is Beijing.",
+          "relevance_score": 0.0001
+        },
+        {
+          "index": 1,
+          "document": "China is a large country in Asia.",
+          "relevance_score": 0.0001
+        },
+        {
+          "index": 2,
+          "document": "Paris is the capital of France.",
+          "relevance_score": 0.0001
+        }
+      ],
+      "time": 1.5794000625610352,
+      "error": null
     },
-    "test_passed": false
+    "test_passed": true
   },
   "test_cooking": {
     "test_case": {
@@ -31,12 +47,23 @@
       "top_n": 2
     },
     "result": {
-      "success": false,
-      "results": [],
-      "time": 0.0016088485717773438,
-      "error": "404 Client Error: Not Found for url: http://localhost:11434/api/rerank"
+      "success": true,
+      "results": [
+        {
+          "index": 0,
+          "document": "Boil water, add pasta, cook 8-12 minutes.",
+          "relevance_score": 0.0001
+        },
+        {
+          "index": 1,
+          "document": "Pasta is made from wheat flour.",
+          "relevance_score": 0.0001
+        }
+      ],
+      "time": 0.023732900619506836,
+      "error": null
     },
-    "test_passed": false
+    "test_passed": true
   },
   "test_empty": {
     "test_case": {
@@ -52,7 +79,7 @@
     "result": {
       "success": true,
       "results": [],
-      "time": 0.0010077953338623047,
+      "time": 0.0015239715576171875,
       "error": null
     },
     "test_passed": true
@@ -72,12 +99,18 @@
       }
     },
     "result": {
-      "success": false,
-      "results": [],
-      "time": 0.0014641284942626953,
-      "error": "404 Client Error: Not Found for url: http://localhost:11434/api/rerank"
+      "success": true,
+      "results": [
+        {
+          "index": 0,
+          "document": "doc",
+          "relevance_score": 0.0001
+        }
+      ],
+      "time": 0.0182039737701416,
+      "error": null
     },
-    "test_passed": true
+    "test_passed": false
   },
   "test_ml": {
     "test_case": {
@@ -92,12 +125,28 @@
       "instruction": "Find AI topics"
     },
     "result": {
-      "success": false,
-      "results": [],
-      "time": 0.0015978813171386719,
-      "error": "404 Client Error: Not Found for url: http://localhost:11434/api/rerank"
+      "success": true,
+      "results": [
+        {
+          "index": 0,
+          "document": "Machine learning is a subset of artificial intelligence.",
+          "relevance_score": 0.0001
+        },
+        {
+          "index": 1,
+          "document": "The weather today is sunny.",
+          "relevance_score": 0.0001
+        },
+        {
+          "index": 2,
+          "document": "Deep learning uses neural networks.",
+          "relevance_score": 0.0001
+        }
+      ],
+      "time": 0.018107891082763672,
+      "error": null
     },
-    "test_passed": false
+    "test_passed": true
   },
   "test_simple": {
     "test_case": {
@@ -109,11 +158,17 @@
       ]
     },
     "result": {
-      "success": false,
-      "results": [],
-      "time": 0.0014522075653076172,
-      "error": "404 Client Error: Not Found for url: http://localhost:11434/api/rerank"
+      "success": true,
+      "results": [
+        {
+          "index": 0,
+          "document": "This is a test document",
+          "relevance_score": 0.0001
+        }
+      ],
+      "time": 0.015683889389038086,
+      "error": null
     },
-    "test_passed": false
+    "test_passed": true
   }
 }

@@ -33,13 +33,13 @@ if ! command -v jq &> /dev/null; then
     echo "   Results will be shown as raw JSON"
 fi
 
-# Test all models
-test_model "bge-reranker-base"
-test_model "bge-reranker-large" 
-test_model "bge-reranker-v2-m3"
-test_model "qwen3-reranker-0.6b"
-test_model "qwen3-reranker-4b"
-test_model "qwen3-reranker-8b"
+# Test all models with current names
+test_model "bgetest" 
+test_model "bgelarge"
+test_model "bgev2m3"
+test_model "qwen3p6b"
+test_model "qwen34b"
+test_model "qwen38b"
 
 echo ""
 echo "🎯 Validation complete!"
