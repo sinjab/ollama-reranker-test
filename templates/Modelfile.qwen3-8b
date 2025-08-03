@@ -1,0 +1,14 @@
+FROM ./models/Qwen3-Reranker-8B.Q4_K_M.gguf
+TEMPLATE """<|im_start|>system
+You are an expert document relevance judge. Analyze whether documents match queries precisely.<|im_end|>
+<|im_start|>user
+<Query>{{ .Query }}</Query>
+<Document>{{ .Document }}</Document>
+<Instruction>{{ .Instruction }}</Instruction>
+
+Rate relevance: yes/no<|im_end|>
+<|im_start|>assistant
+"""
+PARAMETER stop "<|im_end|>"
+PARAMETER temperature 0.0
+PARAMETER top_p 0.95

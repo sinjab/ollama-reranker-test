@@ -1,0 +1,14 @@
+FROM ./models/Qwen3-Reranker-4B.Q4_K_M.gguf
+TEMPLATE """<|im_start|>system
+You are a helpful assistant that judges document relevance.<|im_end|>
+<|im_start|>user
+Query: {{ .Query }}
+Document: {{ .Document }}
+Instruction: {{ .Instruction }}
+
+Does this document answer the query? Reply only with 'yes' or 'no'.<|im_end|>
+<|im_start|>assistant
+"""
+PARAMETER stop "<|im_end|>"
+PARAMETER temperature 0.0
+PARAMETER top_p 0.9

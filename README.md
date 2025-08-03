@@ -7,16 +7,30 @@ A comprehensive testing framework for BGE and Qwen reranker models. This project
 ### Prerequisites
 - Python 3.12+
 - [uv](https://docs.astral.sh/uv/) package manager
+- Ollama with reranking support
 
 ### Installation & Setup
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/sinjab/ollama-reranker-test.git
    cd ollama-reranker-test
    ```
 
-2. **Install dependencies**:
+2. **Set up reranker models** (REQUIRED):
+   📖 **See [MODEL_SETUP.md](MODEL_SETUP.md) for complete model installation guide**
+   
+   Quick setup:
+   ```bash
+   # Create BGE models
+   ollama create bge-reranker-base -f templates/Modelfile.bge-base
+   ollama create bge-reranker-v2-m3 -f templates/Modelfile.bge-v2-m3
+   
+   # Create Qwen3 models  
+   ollama create qwen3-reranker-0.6b -f templates/Modelfile.qwen3-0.6b
+   ```
+
+3. **Install dependencies**:
    ```bash
    uv sync
    ```
@@ -121,6 +135,21 @@ Success Rate: 100.0%
 ollama-reranker-test/
 ├── test_reranker.py          # Unified test framework
 ├── compare_results.py        # Results comparison tool
+├── MODEL_SETUP.md           # Complete model installation guide
+├── models/                  # GGUF model files (6 rerankers)
+│   ├── bge-reranker-base-q4_k_m.gguf
+│   ├── bge-reranker-large-q4_k_m.gguf
+│   ├── bge-reranker-v2-m3-Q4_K_M.gguf
+│   ├── Qwen3-Reranker-0.6B.Q4_K_M.gguf
+│   ├── Qwen3-Reranker-4B.Q4_K_M.gguf
+│   └── Qwen3-Reranker-8B.Q4_K_M.gguf
+├── templates/               # Ollama Modelfile templates
+│   ├── Modelfile.bge-base
+│   ├── Modelfile.bge-large
+│   ├── Modelfile.bge-v2-m3
+│   ├── Modelfile.qwen3-0.6b
+│   ├── Modelfile.qwen3-4b
+│   └── Modelfile.qwen3-8b
 ├── tests/                   # Test case definitions
 │   ├── test_basic.json
 │   ├── test_capital.json
