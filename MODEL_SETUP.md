@@ -31,8 +31,23 @@ git clone https://github.com/sinjab/ollama-reranker-test.git
 cd ollama-reranker-test
 ```
 
-### 2. Create Models with Ollama
+### 2. Download GGUF Models
 ```bash
+# Download all models (~8.7GB total)
+./download_models.sh
+
+# Or download specific models manually:
+# mkdir -p models && cd models
+# wget https://huggingface.co/BAAI/bge-reranker-base/resolve/main/gguf/model.gguf
+# ... (see download_models.sh for all URLs)
+```
+
+### 3. Create Models with Ollama
+```bash
+# Automated setup (recommended)
+./setup_models.sh
+
+# Or create manually:
 # BGE Models (Fast Direct Scoring)
 ollama create bge-reranker-base -f templates/Modelfile.bge-base
 ollama create bge-reranker-large -f templates/Modelfile.bge-large  
@@ -44,8 +59,12 @@ ollama create qwen3-reranker-4b -f templates/Modelfile.qwen3-4b
 ollama create qwen3-reranker-8b -f templates/Modelfile.qwen3-8b
 ```
 
-### 3. Verify Installation
+### 4. Verify Installation
 ```bash
+# Quick validation
+./validate_models.sh
+
+# Or test manually:
 # List created models
 ollama list | grep reranker
 

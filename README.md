@@ -22,12 +22,17 @@ A comprehensive testing framework for BGE and Qwen reranker models. This project
    
    Quick setup:
    ```bash
+   # Download models (~8.7GB)
+   ./download_models.sh
+   
    # Create BGE models
    ollama create bge-reranker-base -f templates/Modelfile.bge-base
    ollama create bge-reranker-v2-m3 -f templates/Modelfile.bge-v2-m3
    
    # Create Qwen3 models  
    ollama create qwen3-reranker-0.6b -f templates/Modelfile.qwen3-0.6b
+   
+   # Or use automation: ./setup_models.sh
    ```
 
 3. **Install dependencies**:
@@ -136,7 +141,10 @@ ollama-reranker-test/
 ├── test_reranker.py          # Unified test framework
 ├── compare_results.py        # Results comparison tool
 ├── MODEL_SETUP.md           # Complete model installation guide
-├── models/                  # GGUF model files (6 rerankers)
+├── download_models.sh       # GGUF model download script (~8.7GB)
+├── setup_models.sh          # Automated Ollama model creation
+├── validate_models.sh       # Quick model validation script
+├── models/                  # GGUF model files (downloaded via script)
 │   ├── bge-reranker-base-q4_k_m.gguf
 │   ├── bge-reranker-large-q4_k_m.gguf
 │   ├── bge-reranker-v2-m3-Q4_K_M.gguf

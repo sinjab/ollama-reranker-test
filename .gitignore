@@ -12,3 +12,6 @@ uv.lock
 
 # Rules
 .*/rules/*
+
+# Large GGUF model files (downloaded via download_models.sh)
+models/
