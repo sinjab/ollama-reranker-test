@@ -53,16 +53,30 @@ MODEL_CONFIGS = {
             'default': "BAAI/bge-reranker-v2-m3"
         },
         'ollama': {
-            'default': "bge-reranker-clean"
+            'models': [
+                "bge-base",
+                "bge-large", 
+                "bge-v2-m3"
+            ],
+            'default': "bge-v2-m3"
         }
     },
     'qwen': {
         'official': {
-            'models': ["Qwen/Qwen3-Reranker-0.6B"],
+            'models': [
+                "Qwen/Qwen3-Reranker-0.6B",
+                "Qwen/Qwen3-Reranker-4B", 
+                "Qwen/Qwen3-Reranker-8B"
+            ],
             'default': "Qwen/Qwen3-Reranker-0.6B"
         },
         'ollama': {
-            'default': "qwen3-reranker-clean"
+            'models': [
+                "qwen3-0.6b",
+                "qwen3-4b",
+                "qwen3-8b"
+            ],
+            'default': "qwen3-0.6b"
         }
     }
 }
@@ -321,15 +335,17 @@ def run_tests(model_type=None, implementation=None, specific_model=None):
     if model_type:
         # Test specific model type
         if implementation == 'official':
-            configs.append((model_type, 'official', specific_model or MODEL_CONFIGS[model_type]['official']['default']))
+            for model in MODEL_CONFIGS[model_type]['official']['models']:
+                configs.append((model_type, 'official', specific_model or model))
         elif implementation == 'ollama':
-            configs.append((model_type, 'ollama', specific_model or MODEL_CONFIGS[model_type]['ollama']['default']))
+            for model in MODEL_CONFIGS[model_type]['ollama']['models']:
+                configs.append((model_type, 'ollama', specific_model or model))
         else:
             # Test both implementations
-            configs.extend([
-                (model_type, 'official', specific_model or MODEL_CONFIGS[model_type]['official']['default']),
-                (model_type, 'ollama', specific_model or MODEL_CONFIGS[model_type]['ollama']['default'])
-            ])
+            for model in MODEL_CONFIGS[model_type]['official']['models']:
+                configs.append((model_type, 'official', specific_model or model))
+            for model in MODEL_CONFIGS[model_type]['ollama']['models']:
+                configs.append((model_type, 'ollama', specific_model or model))
     else:
         # Test all configurations
         for mt in MODEL_CONFIGS:
@@ -337,12 +353,14 @@ def run_tests(model_type=None, implementation=None, specific_model=None):
                 for model in MODEL_CONFIGS[mt]['official']['models']:
                     configs.append((mt, 'official', model))
             elif implementation == 'ollama':
-                configs.append((mt, 'ollama', MODEL_CONFIGS[mt]['ollama']['default']))
+                for model in MODEL_CONFIGS[mt]['ollama']['models']:
+                    configs.append((mt, 'ollama', model))
             else:
                 # Test both implementations
                 for model in MODEL_CONFIGS[mt]['official']['models']:
                     configs.append((mt, 'official', model))
-                configs.append((mt, 'ollama', MODEL_CONFIGS[mt]['ollama']['default']))
+                for model in MODEL_CONFIGS[mt]['ollama']['models']:
+                    configs.append((mt, 'ollama', model))
     
     # Run tests
     for model_type, impl, model_name in configs:

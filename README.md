@@ -1,4 +1,4 @@
-# Unified Reranker Testing Suite
+# Ollama Reranker Testing Suite
 
 A comprehensive testing framework for BGE and Qwen reranker models. This project validates and benchmarks different reranker implementations for document ranking and relevance scoring.
 
