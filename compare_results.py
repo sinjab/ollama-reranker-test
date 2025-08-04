@@ -116,8 +116,13 @@ def analyze_performance(results1: Dict, results2: Dict) -> Dict[str, Any]:
 def get_model_stats(results: Dict) -> Dict[str, Any]:
     """Get statistics for a single model"""
     total_tests = len(results)
-    successful_tests = sum(1 for r in results.values() if r["result"]["success"])
-    successful_times = [r["result"]["time"] for r in results.values() if r["result"]["success"]]
+    successful_tests = 0
+    successful_times = []
+    
+    for r in results.values():
+        if "result" in r and r["result"]["success"]:
+            successful_tests += 1
+            successful_times.append(r["result"]["time"])
     
     avg_time = sum(successful_times) / len(successful_times) if successful_times else 0
     min_time = min(successful_times) if successful_times else 0
@@ -137,10 +142,10 @@ def compare_models_on_test_case(model1_results: Dict, model2_results: Dict, test
     if test_name not in model1_results or test_name not in model2_results:
         return {}
     
-    result1 = model1_results[test_name]["result"]
-    result2 = model2_results[test_name]["result"]
+    result1 = model1_results[test_name].get("result", {})
+    result2 = model2_results[test_name].get("result", {})
     
-    if not result1["success"] or not result2["success"]:
+    if not result1.get("success", False) or not result2.get("success", False):
         return {}
     
     comparison = compare_rankings(
@@ -204,7 +209,7 @@ def main():
         
         # Show sample rankings for first successful test
         for test_name, test_result in results.items():
-            if test_result["result"]["success"] and test_result["result"]["results"]:
+            if "result" in test_result and test_result["result"]["success"] and test_result["result"]["results"]:
                 print(f"  Sample rankings from {test_name}:")
                 for i, res in enumerate(test_result["result"]["results"][:3]):  # Show top 3
                     doc = res["document"]

@@ -4,109 +4,261 @@
       "total_tests": 6,
       "successful_tests": 6,
       "success_rate": 100.0,
-      "avg_time": 0.28495172659556073,
+      "avg_time": 0.24985945224761963,
       "min_time": 0,
-      "max_time": 1.3490612506866455
+      "max_time": 1.2121238708496094
     },
     "bge_ollama_bge-base": {
       "total_tests": 6,
       "successful_tests": 6,
       "success_rate": 100.0,
-      "avg_time": 0.08165164788564046,
-      "min_time": 0.0023860931396484375,
-      "max_time": 0.3846588134765625
+      "avg_time": 0.08072010676066081,
+      "min_time": 0.0014002323150634766,
+      "max_time": 0.3824901580810547
+    },
+    "qwen_ollama": {
+      "total_tests": 3,
+      "successful_tests": 0,
+      "success_rate": 0.0,
+      "avg_time": 0,
+      "min_time": 0,
+      "max_time": 0
+    },
+    "bge_ollama_bgelarge": {
+      "total_tests": 6,
+      "successful_tests": 1,
+      "success_rate": 16.666666666666664,
+      "avg_time": 0.0007922649383544922,
+      "min_time": 0.0007922649383544922,
+      "max_time": 0.0007922649383544922
     },
     "qwen_official_Qwen_Qwen3-Reranker-4B": {
       "total_tests": 6,
       "successful_tests": 6,
       "success_rate": 100.0,
-      "avg_time": 1.4475555817286174,
+      "avg_time": 1.0734126567840576,
       "min_time": 0,
-      "max_time": 4.479085922241211
+      "max_time": 2.1889820098876953
+    },
+    "qwen_ollama_qwen34b": {
+      "total_tests": 6,
+      "successful_tests": 1,
+      "success_rate": 16.666666666666664,
+      "avg_time": 0.001332998275756836,
+      "min_time": 0.001332998275756836,
+      "max_time": 0.001332998275756836
     },
     "qwen_ollama_qwen3-8b": {
       "total_tests": 6,
       "successful_tests": 6,
       "success_rate": 100.0,
-      "avg_time": 1.4504811366399128,
-      "min_time": 0.0012469291687011719,
-      "max_time": 8.608994960784912
+      "avg_time": 0.3243122100830078,
+      "min_time": 0.0014519691467285156,
+      "max_time": 1.8496320247650146
     },
     "bge_ollama_bge-large": {
       "total_tests": 6,
       "successful_tests": 6,
       "success_rate": 100.0,
-      "avg_time": 0.07354974746704102,
-      "min_time": 0.0018279552459716797,
-      "max_time": 0.3365011215209961
+      "avg_time": 0.07331983248392741,
+      "min_time": 0.002190113067626953,
+      "max_time": 0.3352670669555664
     },
     "qwen_ollama_qwen3-0.6b": {
       "total_tests": 6,
       "successful_tests": 6,
       "success_rate": 100.0,
-      "avg_time": 0.5784789323806763,
-      "min_time": 0.0025801658630371094,
-      "max_time": 3.3628358840942383
+      "avg_time": 0.07506577173868816,
+      "min_time": 0.0024857521057128906,
+      "max_time": 0.3741440773010254
     },
     "bge_official_BAAI_bge-reranker-large": {
       "total_tests": 6,
       "successful_tests": 6,
       "success_rate": 100.0,
-      "avg_time": 0.2138380209604899,
+      "avg_time": 0.20632994174957275,
       "min_time": 0,
-      "max_time": 1.1323671340942383
+      "max_time": 1.1017439365386963
     },
     "bge_official_BAAI_bge-reranker-base": {
       "total_tests": 6,
       "successful_tests": 6,
       "success_rate": 100.0,
-      "avg_time": 0.1344083547592163,
+      "avg_time": 0.11999074618021648,
       "min_time": 0,
-      "max_time": 0.5945310592651367
+      "max_time": 0.5591509342193604
     },
     "qwen_ollama_qwen3-4b": {
       "total_tests": 6,
       "successful_tests": 6,
       "success_rate": 100.0,
-      "avg_time": 0.8652573029200236,
-      "min_time": 0.0016188621520996094,
-      "max_time": 5.114803075790405
+      "avg_time": 0.19913884003957114,
+      "min_time": 0.0021331310272216797,
+      "max_time": 1.0788443088531494
+    },
+    "qwen_ollama_qwen3p6b": {
+      "total_tests": 6,
+      "successful_tests": 1,
+      "success_rate": 16.666666666666664,
+      "avg_time": 0.0010759830474853516,
+      "min_time": 0.0010759830474853516,
+      "max_time": 0.0010759830474853516
     },
     "qwen_official_Qwen_Qwen3-Reranker-8B": {
       "total_tests": 6,
       "successful_tests": 6,
       "success_rate": 100.0,
-      "avg_time": 2.5320221980412803,
+      "avg_time": 3.1290971438090005,
       "min_time": 0,
-      "max_time": 7.675822973251343
+      "max_time": 12.067278146743774
+    },
+    "bge_ollama_bgetest": {
+      "total_tests": 6,
+      "successful_tests": 1,
+      "success_rate": 16.666666666666664,
+      "avg_time": 0.0011992454528808594,
+      "min_time": 0.0011992454528808594,
+      "max_time": 0.0011992454528808594
+    },
+    "bge_ollama_bgev2m3": {
+      "total_tests": 6,
+      "successful_tests": 1,
+      "success_rate": 16.666666666666664,
+      "avg_time": 0.0012390613555908203,
+      "min_time": 0.0012390613555908203,
+      "max_time": 0.0012390613555908203
+    },
+    "qwen_ollama_qwen38b": {
+      "total_tests": 6,
+      "successful_tests": 1,
+      "success_rate": 16.666666666666664,
+      "avg_time": 0.0007731914520263672,
+      "min_time": 0.0007731914520263672,
+      "max_time": 0.0007731914520263672
+    },
+    "bge_ollama": {
+      "total_tests": 3,
+      "successful_tests": 0,
+      "success_rate": 0.0,
+      "avg_time": 0,
+      "min_time": 0,
+      "max_time": 0
     },
     "qwen_official_Qwen_Qwen3-Reranker-0.6B": {
       "total_tests": 6,
       "successful_tests": 6,
       "success_rate": 100.0,
-      "avg_time": 0.25495052337646484,
+      "avg_time": 0.25758711496988934,
       "min_time": 0,
-      "max_time": 0.480057954788208
+      "max_time": 0.48229408264160156
     },
     "bge_ollama_bge-v2-m3": {
       "total_tests": 6,
       "successful_tests": 6,
       "success_rate": 100.0,
-      "avg_time": 0.07453219095865886,
-      "min_time": 0.0028150081634521484,
-      "max_time": 0.33963799476623535
+      "avg_time": 0.07345124085744222,
+      "min_time": 0.002585887908935547,
+      "max_time": 0.33933091163635254
     }
   },
   "performance_ranking": [
+    [
+      "qwen_ollama",
+      {
+        "total_tests": 3,
+        "successful_tests": 0,
+        "success_rate": 0.0,
+        "avg_time": 0,
+        "min_time": 0,
+        "max_time": 0
+      }
+    ],
+    [
+      "bge_ollama",
+      {
+        "total_tests": 3,
+        "successful_tests": 0,
+        "success_rate": 0.0,
+        "avg_time": 0,
+        "min_time": 0,
+        "max_time": 0
+      }
+    ],
+    [
+      "qwen_ollama_qwen38b",
+      {
+        "total_tests": 6,
+        "successful_tests": 1,
+        "success_rate": 16.666666666666664,
+        "avg_time": 0.0007731914520263672,
+        "min_time": 0.0007731914520263672,
+        "max_time": 0.0007731914520263672
+      }
+    ],
+    [
+      "bge_ollama_bgelarge",
+      {
+        "total_tests": 6,
+        "successful_tests": 1,
+        "success_rate": 16.666666666666664,
+        "avg_time": 0.0007922649383544922,
+        "min_time": 0.0007922649383544922,
+        "max_time": 0.0007922649383544922
+      }
+    ],
+    [
+      "qwen_ollama_qwen3p6b",
+      {
+        "total_tests": 6,
+        "successful_tests": 1,
+        "success_rate": 16.666666666666664,
+        "avg_time": 0.0010759830474853516,
+        "min_time": 0.0010759830474853516,
+        "max_time": 0.0010759830474853516
+      }
+    ],
+    [
+      "bge_ollama_bgetest",
+      {
+        "total_tests": 6,
+        "successful_tests": 1,
+        "success_rate": 16.666666666666664,
+        "avg_time": 0.0011992454528808594,
+        "min_time": 0.0011992454528808594,
+        "max_time": 0.0011992454528808594
+      }
+    ],
+    [
+      "bge_ollama_bgev2m3",
+      {
+        "total_tests": 6,
+        "successful_tests": 1,
+        "success_rate": 16.666666666666664,
+        "avg_time": 0.0012390613555908203,
+        "min_time": 0.0012390613555908203,
+        "max_time": 0.0012390613555908203
+      }
+    ],
+    [
+      "qwen_ollama_qwen34b",
+      {
+        "total_tests": 6,
+        "successful_tests": 1,
+        "success_rate": 16.666666666666664,
+        "avg_time": 0.001332998275756836,
+        "min_time": 0.001332998275756836,
+        "max_time": 0.001332998275756836
+      }
+    ],
     [
       "bge_ollama_bge-large",
       {
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 0.07354974746704102,
-        "min_time": 0.0018279552459716797,
-        "max_time": 0.3365011215209961
+        "avg_time": 0.07331983248392741,
+        "min_time": 0.002190113067626953,
+        "max_time": 0.3352670669555664
       }
     ],
     [
@@ -115,64 +267,9 @@
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 0.07453219095865886,
-        "min_time": 0.0028150081634521484,
-        "max_time": 0.33963799476623535
-      }
-    ],
-    [
-      "bge_ollama_bge-base",
-      {
-        "total_tests": 6,
-        "successful_tests": 6,
-        "success_rate": 100.0,
-        "avg_time": 0.08165164788564046,
-        "min_time": 0.0023860931396484375,
-        "max_time": 0.3846588134765625
-      }
-    ],
-    [
-      "bge_official_BAAI_bge-reranker-base",
-      {
-        "total_tests": 6,
-        "successful_tests": 6,
-        "success_rate": 100.0,
-        "avg_time": 0.1344083547592163,
-        "min_time": 0,
-        "max_time": 0.5945310592651367
-      }
-    ],
-    [
-      "bge_official_BAAI_bge-reranker-large",
-      {
-        "total_tests": 6,
-        "successful_tests": 6,
-        "success_rate": 100.0,
-        "avg_time": 0.2138380209604899,
-        "min_time": 0,
-        "max_time": 1.1323671340942383
-      }
-    ],
-    [
-      "qwen_official_Qwen_Qwen3-Reranker-0.6B",
-      {
-        "total_tests": 6,
-        "successful_tests": 6,
-        "success_rate": 100.0,
-        "avg_time": 0.25495052337646484,
-        "min_time": 0,
-        "max_time": 0.480057954788208
-      }
-    ],
-    [
-      "bge_official_BAAI_bge-reranker-v2-m3",
-      {
-        "total_tests": 6,
-        "successful_tests": 6,
-        "success_rate": 100.0,
-        "avg_time": 0.28495172659556073,
-        "min_time": 0,
-        "max_time": 1.3490612506866455
+        "avg_time": 0.07345124085744222,
+        "min_time": 0.002585887908935547,
+        "max_time": 0.33933091163635254
       }
     ],
     [
@@ -181,9 +278,31 @@
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 0.5784789323806763,
-        "min_time": 0.0025801658630371094,
-        "max_time": 3.3628358840942383
+        "avg_time": 0.07506577173868816,
+        "min_time": 0.0024857521057128906,
+        "max_time": 0.3741440773010254
+      }
+    ],
+    [
+      "bge_ollama_bge-base",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.08072010676066081,
+        "min_time": 0.0014002323150634766,
+        "max_time": 0.3824901580810547
+      }
+    ],
+    [
+      "bge_official_BAAI_bge-reranker-base",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.11999074618021648,
+        "min_time": 0,
+        "max_time": 0.5591509342193604
       }
     ],
     [
@@ -192,20 +311,42 @@
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 0.8652573029200236,
-        "min_time": 0.0016188621520996094,
-        "max_time": 5.114803075790405
+        "avg_time": 0.19913884003957114,
+        "min_time": 0.0021331310272216797,
+        "max_time": 1.0788443088531494
       }
     ],
     [
-      "qwen_official_Qwen_Qwen3-Reranker-4B",
+      "bge_official_BAAI_bge-reranker-large",
       {
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 1.4475555817286174,
+        "avg_time": 0.20632994174957275,
         "min_time": 0,
-        "max_time": 4.479085922241211
+        "max_time": 1.1017439365386963
+      }
+    ],
+    [
+      "bge_official_BAAI_bge-reranker-v2-m3",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.24985945224761963,
+        "min_time": 0,
+        "max_time": 1.2121238708496094
+      }
+    ],
+    [
+      "qwen_official_Qwen_Qwen3-Reranker-0.6B",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 0.25758711496988934,
+        "min_time": 0,
+        "max_time": 0.48229408264160156
       }
     ],
     [
@@ -214,9 +355,20 @@
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 1.4504811366399128,
-        "min_time": 0.0012469291687011719,
-        "max_time": 8.608994960784912
+        "avg_time": 0.3243122100830078,
+        "min_time": 0.0014519691467285156,
+        "max_time": 1.8496320247650146
+      }
+    ],
+    [
+      "qwen_official_Qwen_Qwen3-Reranker-4B",
+      {
+        "total_tests": 6,
+        "successful_tests": 6,
+        "success_rate": 100.0,
+        "avg_time": 1.0734126567840576,
+        "min_time": 0,
+        "max_time": 2.1889820098876953
       }
     ],
     [
@@ -225,9 +377,9 @@
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 2.5320221980412803,
+        "avg_time": 3.1290971438090005,
         "min_time": 0,
-        "max_time": 7.675822973251343
+        "max_time": 12.067278146743774
       }
     ]
   ],
@@ -238,9 +390,9 @@
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 0.28495172659556073,
+        "avg_time": 0.24985945224761963,
         "min_time": 0,
-        "max_time": 1.3490612506866455
+        "max_time": 1.2121238708496094
       }
     ],
     [
@@ -249,9 +401,9 @@
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 0.08165164788564046,
-        "min_time": 0.0023860931396484375,
-        "max_time": 0.3846588134765625
+        "avg_time": 0.08072010676066081,
+        "min_time": 0.0014002323150634766,
+        "max_time": 0.3824901580810547
       }
     ],
     [
@@ -260,9 +412,9 @@
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 1.4475555817286174,
+        "avg_time": 1.0734126567840576,
         "min_time": 0,
-        "max_time": 4.479085922241211
+        "max_time": 2.1889820098876953
       }
     ],
     [
@@ -271,9 +423,9 @@
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 1.4504811366399128,
-        "min_time": 0.0012469291687011719,
-        "max_time": 8.608994960784912
+        "avg_time": 0.3243122100830078,
+        "min_time": 0.0014519691467285156,
+        "max_time": 1.8496320247650146
       }
     ],
     [
@@ -282,9 +434,9 @@
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 0.07354974746704102,
-        "min_time": 0.0018279552459716797,
-        "max_time": 0.3365011215209961
+        "avg_time": 0.07331983248392741,
+        "min_time": 0.002190113067626953,
+        "max_time": 0.3352670669555664
       }
     ],
     [
@@ -293,9 +445,9 @@
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 0.5784789323806763,
-        "min_time": 0.0025801658630371094,
-        "max_time": 3.3628358840942383
+        "avg_time": 0.07506577173868816,
+        "min_time": 0.0024857521057128906,
+        "max_time": 0.3741440773010254
       }
     ],
     [
@@ -304,9 +456,9 @@
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 0.2138380209604899,
+        "avg_time": 0.20632994174957275,
         "min_time": 0,
-        "max_time": 1.1323671340942383
+        "max_time": 1.1017439365386963
       }
     ],
     [
@@ -315,9 +467,9 @@
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 0.1344083547592163,
+        "avg_time": 0.11999074618021648,
         "min_time": 0,
-        "max_time": 0.5945310592651367
+        "max_time": 0.5591509342193604
       }
     ],
     [
@@ -326,9 +478,9 @@
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 0.8652573029200236,
-        "min_time": 0.0016188621520996094,
-        "max_time": 5.114803075790405
+        "avg_time": 0.19913884003957114,
+        "min_time": 0.0021331310272216797,
+        "max_time": 1.0788443088531494
       }
     ],
     [
@@ -337,9 +489,9 @@
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 2.5320221980412803,
+        "avg_time": 3.1290971438090005,
         "min_time": 0,
-        "max_time": 7.675822973251343
+        "max_time": 12.067278146743774
       }
     ],
     [
@@ -348,9 +500,9 @@
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 0.25495052337646484,
+        "avg_time": 0.25758711496988934,
         "min_time": 0,
-        "max_time": 0.480057954788208
+        "max_time": 0.48229408264160156
       }
     ],
     [
@@ -359,9 +511,97 @@
         "total_tests": 6,
         "successful_tests": 6,
         "success_rate": 100.0,
-        "avg_time": 0.07453219095865886,
-        "min_time": 0.0028150081634521484,
-        "max_time": 0.33963799476623535
+        "avg_time": 0.07345124085744222,
+        "min_time": 0.002585887908935547,
+        "max_time": 0.33933091163635254
+      }
+    ],
+    [
+      "bge_ollama_bgelarge",
+      {
+        "total_tests": 6,
+        "successful_tests": 1,
+        "success_rate": 16.666666666666664,
+        "avg_time": 0.0007922649383544922,
+        "min_time": 0.0007922649383544922,
+        "max_time": 0.0007922649383544922
+      }
+    ],
+    [
+      "qwen_ollama_qwen34b",
+      {
+        "total_tests": 6,
+        "successful_tests": 1,
+        "success_rate": 16.666666666666664,
+        "avg_time": 0.001332998275756836,
+        "min_time": 0.001332998275756836,
+        "max_time": 0.001332998275756836
+      }
+    ],
+    [
+      "qwen_ollama_qwen3p6b",
+      {
+        "total_tests": 6,
+        "successful_tests": 1,
+        "success_rate": 16.666666666666664,
+        "avg_time": 0.0010759830474853516,
+        "min_time": 0.0010759830474853516,
+        "max_time": 0.0010759830474853516
+      }
+    ],
+    [
+      "bge_ollama_bgetest",
+      {
+        "total_tests": 6,
+        "successful_tests": 1,
+        "success_rate": 16.666666666666664,
+        "avg_time": 0.0011992454528808594,
+        "min_time": 0.0011992454528808594,
+        "max_time": 0.0011992454528808594
+      }
+    ],
+    [
+      "bge_ollama_bgev2m3",
+      {
+        "total_tests": 6,
+        "successful_tests": 1,
+        "success_rate": 16.666666666666664,
+        "avg_time": 0.0012390613555908203,
+        "min_time": 0.0012390613555908203,
+        "max_time": 0.0012390613555908203
+      }
+    ],
+    [
+      "qwen_ollama_qwen38b",
+      {
+        "total_tests": 6,
+        "successful_tests": 1,
+        "success_rate": 16.666666666666664,
+        "avg_time": 0.0007731914520263672,
+        "min_time": 0.0007731914520263672,
+        "max_time": 0.0007731914520263672
+      }
+    ],
+    [
+      "qwen_ollama",
+      {
+        "total_tests": 3,
+        "successful_tests": 0,
+        "success_rate": 0.0,
+        "avg_time": 0,
+        "min_time": 0,
+        "max_time": 0
+      }
+    ],
+    [
+      "bge_ollama",
+      {
+        "total_tests": 3,
+        "successful_tests": 0,
+        "success_rate": 0.0,
+        "avg_time": 0,
+        "min_time": 0,
+        "max_time": 0
       }
     ]
   ],
@@ -369,17 +609,25 @@
     "bge_models": [
       "bge_official_BAAI_bge-reranker-v2-m3",
       "bge_ollama_bge-base",
+      "bge_ollama_bgelarge",
       "bge_ollama_bge-large",
       "bge_official_BAAI_bge-reranker-large",
       "bge_official_BAAI_bge-reranker-base",
+      "bge_ollama_bgetest",
+      "bge_ollama_bgev2m3",
+      "bge_ollama",
       "bge_ollama_bge-v2-m3"
     ],
     "qwen_models": [
+      "qwen_ollama",
       "qwen_official_Qwen_Qwen3-Reranker-4B",
+      "qwen_ollama_qwen34b",
       "qwen_ollama_qwen3-8b",
       "qwen_ollama_qwen3-0.6b",
       "qwen_ollama_qwen3-4b",
+      "qwen_ollama_qwen3p6b",
       "qwen_official_Qwen_Qwen3-Reranker-8B",
+      "qwen_ollama_qwen38b",
       "qwen_official_Qwen_Qwen3-Reranker-0.6B"
     ]
   }

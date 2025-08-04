@@ -1,4 +1,6 @@
 FROM /Users/khs/Documents/projects/ollama-reranker-test/models/bge-reranker-large-q4_k_m.gguf
 # BGE rerankers are cross-encoder sequence classification models
-# They don't use templates - they process query-document pairs directly
-PARAMETER temperature 0
+TEMPLATE """Query: {{ .Query }}
+Document: {{ .Document }}
+Relevance:"""
+PARAMETER temperature 0.0
