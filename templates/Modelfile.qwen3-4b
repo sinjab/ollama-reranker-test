@@ -1,5 +1,14 @@
-FROM ./models/Qwen3-Reranker-4B.Q4_K_M.gguf
-TEMPLATE """Query: {{ .Query }}
-Document: {{ .Document }}
-Relevance: """
+FROM /Users/khs/Documents/projects/ollama-reranker-test/models/Qwen3-Reranker-4B.Q4_K_M.gguf
+TEMPLATE """<|im_start|>system
+Judge whether the Document meets the requirements based on the Query and the Instruct provided. Note that the answer can only be "yes" or "no".<|im_end|>
+<|im_start|>user
+<Instruct>: {{ .Instruction }}
+<Query>: {{ .Query }}
+<Document>: {{ .Document }}<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+"""
 PARAMETER temperature 0
