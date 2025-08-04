@@ -15,3 +15,6 @@ uv.lock
 
 # Large GGUF model files (downloaded via download_models.sh)
 models/
+
+# macOS system files
+.DS_Store

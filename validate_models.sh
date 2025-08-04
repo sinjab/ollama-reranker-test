@@ -34,12 +34,12 @@ if ! command -v jq &> /dev/null; then
 fi
 
 # Test all models with current names
-test_model "bgetest" 
-test_model "bgelarge"
-test_model "bgev2m3"
-test_model "qwen3p6b"
-test_model "qwen34b"
-test_model "qwen38b"
+test_model "bge-base" 
+test_model "bge-large"
+test_model "bge-v2-m3"
+test_model "qwen3-0.6b"
+test_model "qwen3-4b"
+test_model "qwen3-8b"
 
 echo ""
 echo "🎯 Validation complete!"
